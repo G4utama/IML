@@ -1,6 +1,8 @@
-import check
+import numpy as np
+from check import check
 
 def predict(x, w):
+
     """
     Compute the prediction of a linear model.
     Inputs:
@@ -9,7 +11,9 @@ def predict(x, w):
     Outputs:
         h: np.ndarray predictions of shape [num_samples, 1]
     """
+
     h = np.dot(x,w)
     return h
 
-check(predict)
+# uncomment to test
+#check(predict)

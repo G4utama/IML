@@ -1,20 +1,4 @@
-##################################################
-# Imports
-##################################################
-
-import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from mpl_toolkits import mplot3d
-
-# Settings
-plt.style.use('seaborn-white')
-
-
-##################################################
-# Check function tool, skip this
-##################################################
 
 def check(func, print_log=False):
 

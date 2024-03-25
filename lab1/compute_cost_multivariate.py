@@ -2,7 +2,7 @@ import numpy as np
 from predict import predict
 from check import check
 
-def compute_cost(x, y, w):
+def compute_cost_multivariate(x, y, w):
 
     """
     Inputs:
@@ -14,8 +14,9 @@ def compute_cost(x, y, w):
     """
 
     m = x.shape[0]
-    mse = np.sum((y-predict(x,w))**2) / (2*m)
+    res = predict(x,w) - y
+    mse = np.dot(res.T, res)[0,0] / (2*m)
     return mse
 
 # uncomment to test
-#check(compute_cost)
+check(compute_cost_multivariate)
