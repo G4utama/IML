@@ -15,5 +15,4 @@ def predict(x, w):
     h = np.dot(x,w)
     return h
 
-# uncomment to test
-#check(predict)
+#check(predict) #uncomment "check" to test

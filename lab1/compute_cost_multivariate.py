@@ -18,5 +18,4 @@ def compute_cost_multivariate(x, y, w):
     mse = np.dot(res.T, res)[0,0] / (2*m)
     return mse
 
-# uncomment to test
-check(compute_cost_multivariate)
+#check(compute_cost_multivariate) #uncomment "check" to test

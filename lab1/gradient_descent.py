@@ -31,5 +31,4 @@ def gradient_descent(x, y, w, learning_rate, num_iters):
     w_opt = w_hist[:,(np.argmin(j_hist)+1)].reshape(-1,1)
     return j_hist, w_opt, w_hist
 
-# uncomment to test
-#check(gradient_descent)
+#check(gradient_descent) #uncomment "check" to test

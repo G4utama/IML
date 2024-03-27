@@ -17,5 +17,4 @@ def compute_cost(x, y, w):
     mse = np.sum((y-predict(x,w))**2) / (2*m)
     return mse
 
-# uncomment to test
-#check(compute_cost)
+#check(compute_cost) #uncomment "check" to test
