@@ -6,11 +6,7 @@ def sigmoid(z):
     input z: np.ndaray of shape (m, 3)
     output s: np.ndarray of shape (m, 3) where s[i, j] = g(z[i, j])
     '''
-    # Insert your code here ~ 1-6 line
-    ### Start ###
-
-    ### End #####
-
+    s = 1.0 / (1.0 + np.exp(-z))
     return s
 
 # Check function

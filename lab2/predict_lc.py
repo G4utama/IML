@@ -7,10 +7,8 @@ def predict_lc(x, theta):
     input theta: np.ndarray of shape (3, 1)
     output y: np.ndarray of shape (m, 1)
     '''
-    # Insert your code here ~ 1-3 lines
-    ### Start ###
-
-    ### End #####
+    h = np.dot(x,theta)
+    y = np.sign(h)
     return y
 
 # Check function

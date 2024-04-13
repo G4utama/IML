@@ -6,10 +6,9 @@ def mse(y_true, y_pred):
     input y_true: np.ndarray of shape (m, 1)
     input y_pred: np.ndarray of shape (m, 1)
     '''
-    # Insert your code here ~ 1-3 lines
-    ### Start ###
-
-    ### End #####
+    m = y_true.shape[0]
+    res2 = (y_true - y_pred) ** 2
+    J = np.sum(res2) / (2*m)
     return J
 
 # Check function

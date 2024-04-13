@@ -1,11 +1,10 @@
 import numpy as np
 from check_func import check_func
+from sigmoid import sigmoid
 
 def predict_lr(x, theta):
-    # Insert your code here ~ 1-3 lines
-    ### Start ###
-
-    ### End ###
+    h = sigmoid(np.dot(x,theta))
+    y_pred = np.round(h)
     return y_pred
 
 # Check function

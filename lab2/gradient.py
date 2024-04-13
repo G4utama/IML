@@ -12,10 +12,9 @@ def gradient(y_true, y_pred, x):
     y_true = y_true.reshape(-1, 1) # now shape (m, 1)
     y_pred = y_pred.reshape(-1, 1) # now shape (m, 1)
 
-    # Your code here ~ 1-6 lines
-    ### Start ###
-
-    ### End ###
+    m = y_true.shape[0]
+    res = y_pred - y_true
+    dJ = np.dot(x.T, res) / m
     return dJ
 
 # Check function

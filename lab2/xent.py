@@ -7,10 +7,11 @@ def xent(y_true, y_pred):
     input y_pred: np.ndarray of shape (m,)
     output J: float
     '''
-    # Insert your code here ~ 1-6 lines
-    ### Start ###
-
-    ### End ###
+    m = y_true.shape[0]
+    a = y_true * np.log(y_pred)
+    b = (1-y_true) * np.log(1-y_pred)
+    c = -a-b
+    J = np.sum(c) / m
     return J
 
 # Check function
