@@ -1,1 +1,5 @@
+*.aux
+*.gz
+*.log
 *.pyc
+*.toc
