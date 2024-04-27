@@ -1,0 +1,23 @@
+\section{Linear Regression}
+
+\textbf{Linear Regression} is defined by the notation:
+\begin{equation} \tag{Linear Regression}
+    h_\theta x = \theta^T x
+\end{equation}
+If two parameters are used, the function is:
+\begin{equation} \tag{Linear Regression}
+    h_\theta = \theta_0 + \theta_1^T x
+\end{equation}
+The goal of this approach is to find parameters such that $\theta_{0,1}$, the result of the function $h_\theta(x)$, is close to the value of the target $y$.  One way to quantify this distance is through the \textbf{Cost Function}:
+\begin{equation} \tag{Cost Function}
+    J(\theta_0,\theta_1) = \frac{1}{2m} \sum_{i=1}^m (h_{\theta}(x_i)-y_i)^2
+\end{equation}
+Where:
+\begin{itemize}
+    \item m: number of examples
+    \item x: input variable
+    \item y: output variable
+\end{itemize}
+The goal of the learning algorithm will then be to minimize the value of this function. To do this, the \textbf{Gradient Descent} method can be used.
+
+\newpage
