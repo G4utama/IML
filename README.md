@@ -1,2 +1,2 @@
 # IML
-University Introduction to Machine Learning exercises
+Unipd - Introduction to Machine Learning - [Summary](https://github.com/G4utama/IML/blob/main/summary/IML.pdf) and Exercises
