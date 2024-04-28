@@ -20,10 +20,27 @@ Depending on the training set the model may have too much bias or have too much 
 \subsection{Model Selection}
 
 \subsubsection{Hold-out}
+\textbf{Hold-out} is the procedure that, once a training data set is defined, splits it into several subsets and one of those will be the set used to evaluate the model, also called the validation set.
+\begin{itemize}
+    \item A classifier/regressor will then be trained on the training set data except those in the validation set and another, used to evaluate the performance of the model, called the test set.
+    \item Usually the size of the training + validation sets should be larger than the test set, for example 70\%, 15\% and 15\% respectively.
+    \item The validation and test sets, which are not used for training, are used to be able to verify the model on data it has never seen.
+    \item In this way, however, the validation and test data are useless for training.
+\end{itemize}
 
 \subsubsection{K-fold Cross Validation}
+The most common method of making them useful is called \textbf{K-fold Cross Validation}, in which:
+\begin{enumerate}
+    \item The dataset is divided into $k$ equal partitions, the algorithm uses $k-1$ of them for training and the remaining partition for validation;
+    \item This procedure is performed $k$ times, leaving a different partition out of the training set each time;
+    \item Finally, the various results obtained are averaged to calculate the overall performance of the model;
+    \item At this point a final evaluation of the resulting model can be made using the test set, which was not used within the cross validation, to avoid overestimating performance.
+\end{enumerate}       
 
 \subsubsection{Leave-one-out}
+A special case of k-fold cross validation, called \textbf{Leave-one-out}, is when the number of partitions chosen matches the number of data within the training set, and thus at each iteration the training set will contain all but one of the available data.
+The purpose of cross validation is therefore to try to converge, as $k$ increases, the average error they compute to the true error. But of course as $k$ increases, the computational cost also increases since you have to redo $k$ times the training so it is usually used with a relatively small $k$, usually $10$.
+
 
 
 \newpage
