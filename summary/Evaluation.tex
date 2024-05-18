@@ -27,7 +27,7 @@ Depending on the training set the model may have too much bias or have too much 
     \item The validation and test sets, which are not used for training, are used to be able to verify the model on data it has never seen.
     \item In this way, however, the validation and test data are useless for training.
 \end{itemize}
-
+\newpage
 \subsubsection{K-fold Cross Validation}
 The most common method of making them useful is called \textbf{K-fold Cross Validation}, in which:
 \begin{enumerate}
@@ -40,6 +40,54 @@ The most common method of making them useful is called \textbf{K-fold Cross Vali
 \subsubsection{Leave-one-out}
 A special case of k-fold cross validation, called \textbf{Leave-one-out}, is when the number of partitions chosen matches the number of data within the training set, and thus at each iteration the training set will contain all but one of the available data.
 The purpose of cross validation is therefore to try to converge, as $k$ increases, the average error they compute to the true error. But of course as $k$ increases, the computational cost also increases since you have to redo $k$ times the training so it is usually used with a relatively small $k$, usually $10$.
+
+\subsection{Metrics}
+Evaluation metrics define how the goodness-of-fit of the model is evaluated.  We consider several different metrics per classification task, starting with an example:
+\begin{center}
+    \begin{tabular}{c}
+        \\ \includegraphics[width=0.8\textwidth]{images/Metrics1.png} \\ \\
+    \end{tabular}
+\end{center}
+Evaluation metrics define how the goodness-of-fit of the model is evaluated.  We consider several different metrics per classification task, starting with an example:
+\begin{center}
+    \begin{tabular}{c}
+        \\ \includegraphics[width=0.6\textwidth]{images/Metrics2.png} \\ \\
+    \end{tabular}
+\end{center}
+Using this information we then see various metrics for a model:
+\begin{itemize}
+    \item \textbf{Accuracy:} calculate how accurate it is
+    \begin{equation} \tag*{}
+        \text{\textbf{Accuracy}} = \frac{TP + TN}{P + N} = \frac{\text{all correct}}{\text{all instances}} = \frac{8}{11} \approx 0.73
+    \end{equation}
+    \item \textbf{Precision:} calculate how precise it is
+    \begin{equation} \tag*{}
+        \text{\textbf{Precision}} = \frac{TP}{TP + FP} = \frac{TP}{\text{all predicted}} = \frac{4}{6} \approx 0.67
+    \end{equation}
+    \item \textbf{Recall:} calculate how well it can predict
+    \begin{equation} \tag*{}
+        \text{sensitivity} = TPR = \text{\textbf{Recall}} = \frac{TP}{TP + FN} = \frac{TP}{\text{all actual}} = \frac{4}{5} = 0.80
+    \end{equation}
+    \item \textbf{False Positive Rate:} calculate how many of the incorrect predictions it makes
+    \begin{equation} \tag*{}
+        \text{\textbf{FPR}} = \frac{FP}{FP + TN} = \frac{FP}{\text{all incorrect}} = \frac{2}{6} \approx 0.33
+    \end{equation}
+    \item \textbf{F1-Score:} the harmonic mean of precision and recall
+    \begin{equation} \tag*{}
+        \text{\textbf{F1-Score}} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+    \end{equation}
+    \item \textbf{Average Precision (AP):} combines recall and precision for a ranked list
+    \begin{equation} \tag*{}
+        \text{\textbf{AP}} = \frac{\sum^n_{k=1} P(k) \cdot R(k)}{\text{all actual}}
+    \end{equation}
+    \item \textbf{mean Average Precision (mAP):} the average of all AP values
+    \begin{equation} \tag*{}
+        \text{\textbf{mAP}} = \frac{1}{Q} \cdot \sum^Q_{q=1} AP(q)
+    \end{equation}
+\end{itemize}
+
+
+
 
 
 
