@@ -1,7 +1,7 @@
 \section{Regularization}
 
 \subsection{Linear}
-Since the goal of the machine learning model is to minimize loss, a simple way to regularize the parameters is to multiply them by a number $\lambda$ so as to force the algorithm to assign smaller and therefore less influential values, making the resulting parameters more accurately represent the totality of the examples.
+Since the goal of the machine learning model is to \textbf{minimize loss}, a simple way to regularize the parameters is to multiply them by a number $\lambda$ so as to force the algorithm to assign smaller and therefore less influential values, making the resulting parameters more accurately represent the totality of the examples.
 \begin{equation} \tag{Loss Function}
     J(\theta) = \cfrac{1}{2m} \sum_{i=1}^m (h_\theta(x_i) - y_i)^2 + \lambda \sum_{j=1}^n \theta_j^2
 \end{equation}
@@ -14,8 +14,8 @@ repeat until convergence{
 \end{lstlisting}
 
 \subsection{Logistic}
-One can apply the same principle to logistic regression by adding a regularization term to the loss function, which becomes:
-\begin{equation} \tag{Loss Function}
+One can apply the same principle to logistic regression by \textbf{adding a regularization term} to the loss function, which becomes:
+\begin{equation} \tag{LF + Regularization}
     J(\theta) = \cfrac{1}{m} \left[ \sum_{i=1}^m y_i \log(h_\theta(x_i)) + (1-y_i) \log(1-h_\theta(x_i)) \right] + \cfrac{\lambda}{2m} \sum_{j=1}^n \theta_j^2
 \end{equation}
 The parameter update step then becomes:
