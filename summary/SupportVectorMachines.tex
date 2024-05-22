@@ -39,3 +39,43 @@ The objective function of an SVM can be written as follows:
 The functions cost$_1$ and cost$_0$ allow us to create a decision boundary.
 
 \newpage
+\subsection{Decision Boundary}
+The decision boundary allows too ambiguous results to be penalized, for example with a decision boundary between $1$ and $-1$ values of $\theta^Tx$ will be penalized.
+\begin{center}
+    \begin{tabular}{c}
+        \\ \includegraphics[width=0.9\textwidth]{images/SVM2.png} \\ \\
+    \end{tabular}
+\end{center}
+The Loss Function of SVM is called \textbf{Hinge Loss} and is defined as follows:
+\begin{equation} \tag{Hinge Loss}
+    \text{cost}(h_{\theta}(x_i),y_i) =
+    \begin{cases}
+        max(0, 1 - \theta^Tx_i) & \text{if } y_i = 1 \\
+        max(0, 1 + \theta^Tx_i) & \text{if } y_i = 0
+    \end{cases}
+\end{equation}
+With this loss function an equidistant margin will be selected from the various examples. \\
+We can rewrite the optimization objective as follows:
+\begin{equation} \tag*{}
+    \min \frac{1}{2} \sum^n_{j=1} \theta^2_j = \frac{1}{2} \|\theta\|^2
+    \quad\Rightarrow\quad
+    \begin{cases}
+        \theta^Tx_i \geq 1 & \text{if } y_i = 1 \\
+        \theta^Tx_i \leq -1 & \text{if } y_i = 0
+    \end{cases}
+\end{equation}
+In case we were in two dimensions:
+\begin{center}
+    \begin{tabular}{c}
+        \\ \includegraphics[width=0.5\textwidth]{images/SVM3.png} \\ \\
+    \end{tabular}
+\end{center}
+$p_i$ is the projection of $x_i$ onto $\theta$, so $\theta^Tx_i = p_i\|\theta\|$. \\
+We can rewrite the two constraints in this way:
+\begin{itemize}
+    \item $p_i\|\theta\| \geq 1$, if $y_i = 1$
+    \item $p_i\|\theta\| \leq -1$, if $y_i = 0$
+\end{itemize}
+The SVM will then go to choose a decision boundary that maximizes $p_i$ since the only way to minimize the objective function is by decreasing $\theta$.
+
+\newpage
