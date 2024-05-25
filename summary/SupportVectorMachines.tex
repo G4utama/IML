@@ -79,3 +79,24 @@ We can rewrite the two constraints in this way:
 The SVM will then go to choose a decision boundary that maximizes $p_i$ since the only way to minimize the objective function is by decreasing $\theta$.
 
 \newpage
+\subsection{Margin Extension}
+In case there are outliers among the examples it is necessary to introduce a way to ignore this error noise.  We can introduce into the model a variable $\xi_i$ called the \textbf{slack variable}:
+\begin{equation} \tag*{}
+    \min \frac{1}{2} \|\theta\|^2 + \alpha \sum^m_{i=1} \xi_i
+\end{equation}
+\begin{equation} \tag*{}
+    \xi_i \geq 0, \forall i:y_i(p_i\|\theta\|) \geq 1 - \xi_i
+\end{equation}
+Extending the soft margin leads to the definition of hinge loss:
+\begin{equation} \tag*{}
+    l(h_\theta(x_i),y_i) = \max (0,i - y_i(\theta^Tx_i))
+\end{equation}
+The Hinge Loss is a convex function and can be optimized by gradient descent.
+
+\subsection{Kernel Trick}
+For classification of nonlinear data with SVM, a practice called \textbf{Kernel Trick} is used. The Kernel Trick projects the data into a new space via a function called kernel. Starting from a particular space $\mathbb{R}_n$, impose the same constraints in a higher dimensional space $\mathbb{R}_m$. The kernel function is a function $\phi:\mathbb{R}_n \rightarrow \mathbb{R}_m$ that maps vectors in $\mathbb{R}_n$ to a space $\mathbb{R}_m$.
+\begin{equation}
+    k(x,y) = \phi(x)^T \phi(y)
+\end{equation}
+
+\newpage
