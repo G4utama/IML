@@ -17,7 +17,7 @@ class SVM(object):
         ##############################
         # INSERT YOUR CODE HERE
         ##############################
-
+        h = np.dot(x, self.theta)
         ##############################
         # END OF YOUR CODE
         ##############################
@@ -33,8 +33,11 @@ class SVM(object):
         ##############################
         # INSERT YOUR CODE HERE
         ##############################
-
-
+        cost1 = y * np.maximum(1-h,0)
+        cost2= (1-y) * np.maximum(1+h,0)
+        B = np.sum(self.theta**2) / 2
+        A = np.sum(cost1 + cost2)
+        j = C*A + B
         ##############################
         # END OF YOUR CODE
         ##############################
@@ -91,7 +94,8 @@ class SVM(object):
         ##############################
         # INSERT YOUR CODE HERE
         ##############################
-     
+        h = self.forward(x)
+        y_ = 1 * (h >= 0)
         ##############################
         # END OF YOUR CODE
         ##############################
