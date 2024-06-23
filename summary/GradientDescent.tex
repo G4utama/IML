@@ -10,9 +10,9 @@
 The parameter $\eta>0$ is called the \textbf{Learning Rate} and represents the length of the "step" the algorithm takes in the direction of steepest descent.
 A learning rate that is too high risks that the algorithm will not converge while one that is too low increases the convergence time.
 \paragraph{Batch Gradient Descent:} To compute the gradient $\nabla J$, the cost is computed over the entire training set, and after each update the gradient is recomputed for the new vector $\theta_{k+1}$.
-\paragraph{Stochastic Gradient Descent:} method in which the parameters are updated for each cycle according to the gradient:
+\paragraph{Stochastic Gradient Descent:} method in which the parameters are updated for each cycle according to the gradient.
 \begin{lstlisting}[mathescape=true]
-for $i=1$ to $m$ do{
+for $i=1$ to $m${
     $\theta_0 = \theta_0 - \eta (\theta_0 + \theta_1 x_i - y_i)$
     $\theta_1 = \theta_1 - \eta (\theta_0 + \theta_1 x_i - y_i) x_i$
 }
