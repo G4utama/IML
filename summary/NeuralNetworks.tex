@@ -90,4 +90,47 @@ where:
     \item $u_l$ is the number of units in the layer $l$
 \end{itemize}
 
+\subsection{Parameter Learning}
+
+\subsubsection{Feed Forward}
+The prediction value $h_\theta(x)$ is calculated by feed forward, by multiplying the output $z$ of each layer with the weights $\theta$ of the next one and calculating the output $z$ of the linear function $f$ on the result.
+\begin{center}
+    \begin{tabular}{c}
+        \\ \includegraphics[width=0.4\textwidth]{images/NeuralNetworks5.png} \\ \\
+    \end{tabular}
+\end{center}
+
+\subsubsection{Backpropagation}
+In the final layer, the cost will be the difference between the ground truth $y_j$ and the output of the last layer $a_j^l$, and the error will then be propagated backward by multiplying the error by the vector of weights $\theta{l-1}$ of the previous layer and multiplied element wise by $f'(z^{l-1})$, where $z$ is the output of the linear function:
+\begin{equation} \tag*{}
+    \delta^{l-1} = (\theta^{l-1})^T \delta^{l} \cdot f'(z^{l-1})
+\end{equation}
+
+\raggedright
+\textbf{Backpropagation Algorithm:}
+\begin{lstlisting}[mathescape=true]
+set $\Delta_{ij}^l = 0 \quad (\forall i,j,l)$
+for $k=1$ to $m${
+    set $a^l = xa^k$
+    for $l=2$ to $L${
+        compute $a^l$
+    }
+    compute $\delta^L = a^L - y^k$
+    compute $\delta^{L-1}, \delta^{L-2}, \ldots, \delta^2 = a^L - y^k$
+    compute gradient $\delta_{ij}^l = \Delta_{ij}^l + a_j^l \delta_i^{l+1}$
+}
+if j!=0{
+    compute $D_{ij}^l = \frac{1}{m} (\Delta_{ij}^l + \lambda \theta_{ij}^l)$
+}
+if j!=0{
+    compute $D_{ij}^l = \frac{1}{m} \Delta_{ij}^l$
+}
+\end{lstlisting}
+\textbf{Consequences:}
+\begin{itemize}
+    \item Each unit $j$ is responsible for a fraction of the error $\delta_j$
+    \item The error is calculated according to the strength of the connections between the layers
+    \item The error is propagated backward depending on the weights of the units
+\end{itemize}
+
 \newpage
